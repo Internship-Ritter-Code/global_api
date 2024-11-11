@@ -8,4 +8,9 @@ class District extends Model
 {
     //
     protected $guarded = [];
+
+    public function regency()
+    {
+        return $this->belongsTo(Regency::class);
+    }
 }

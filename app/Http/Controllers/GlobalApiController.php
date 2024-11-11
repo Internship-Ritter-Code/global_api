@@ -2,47 +2,57 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\District;
+use App\Models\Province;
+use App\Models\Regency;
 use Illuminate\Http\Request;
 
 class GlobalApiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function getProvince()
     {
-        //
+        $province = Province::all();
+        $message = 'Success';
+        $status = 200;
+        return response()->json(['message' => $message, 'status' => $status, 'data' => $province]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function getRegency(Request $request)
     {
-        //
+        $province_id = $request->province_id;
+        if ($province_id) {
+            $regency = Regency::where('province_id', $province_id)->get();
+        } else {
+            $regency = Regency::all();
+        }
+        $message = 'Success';
+        $status = 200;
+        return response()->json(['message' => $message, 'status' => $status, 'data' => $regency]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function getDistrict(Request $request)
     {
-        //
+        $regency_id = $request->regency_id;
+        if ($regency_id) {
+            $district = District::where('regency_id', $regency_id)->get();
+        } else {
+            $district = District::all();
+        }
+        $message = 'Success';
+        $status = 200;
+        return response()->json(['message' => $message, 'status' => $status, 'data' => $district]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function getDistrictWithProvince(Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $district_id = $request->district_id;
+        if ($district_id) {
+            $district = District::with('regency.regency.province')->where('id', $district_id)->first();
+        } else {
+            $district = District::with('regency.regency.province')->get();
+        }
+        $message = 'Success';
+        $status = 200;
+        return response()->json(['message' => $message, 'status' => $status, 'data' => $district]);
     }
 }
