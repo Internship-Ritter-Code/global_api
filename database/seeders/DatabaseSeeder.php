@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             ProvinceSeeder::class,
             RegencySeeder::class,
             DistrictSeeder::class,
-            JneSeeder::class,
+            JneDestionationSeeder::class,
         ]);
     }
 }
