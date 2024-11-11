@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\District;
+use App\Models\JneDestination;
 use App\Models\Province;
 use App\Models\Regency;
 use Illuminate\Http\Request;
@@ -54,5 +55,11 @@ class GlobalApiController extends Controller
         $message = 'Success';
         $status = 200;
         return response()->json(['message' => $message, 'status' => $status, 'data' => $district]);
+    }
+
+    public function getJneDestination()
+    {
+        $jneDestination = JneDestination::all();
+        return response()->json(['message' => 'Success', 'status' => 200, 'data' => $jneDestination]);
     }
 }

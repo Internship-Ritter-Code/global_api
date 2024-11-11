@@ -13,4 +13,5 @@ Route::controller(GlobalApiController::class)->group(function () {
     Route::get('/regency', 'getRegency');
     Route::get('/district', 'getDistrict');
     Route::get('/district-with-province', 'getDistrictWithProvince');
+    Route::get('/jne-destination', 'getJneDestination');
 });
