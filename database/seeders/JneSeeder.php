@@ -7667,6 +7667,6 @@ class JneSeeder extends Seeder
         (7647,'DJJ21747','YUKO,TOLIKARA                 '),
         (7648,'DJJ21733','YUNERI,TOLIKARA'),
         (7649,'ZMX10000','ZAMBIA'),
-        (7650,'ZWX10000','ZIMBABWE');");
+        (7650,'ZWX10000','ZIMBABWE')");
     }
 }
