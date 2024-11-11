@@ -59,9 +59,9 @@ class GlobalApiController extends Controller
 
     public function getJneDestination(Request $request)
     {
-        $query = $request->query;
-        if ($query) {
-            $jneDestination = JneDestination::where('name', 'like', '%' . $query . '%')->get();
+        $str = $request->q;
+        if ($str) {
+            $jneDestination = JneDestination::where('name', 'like', '%' . $str . '%')->get();
         } else {
             $jneDestination = JneDestination::all();
         }
