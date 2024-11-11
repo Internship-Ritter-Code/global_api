@@ -19,9 +19,9 @@ class GlobalApiController extends Controller
 
     public function getRegency(Request $request)
     {
-        $province_id = $request->province_id;
-        if ($province_id) {
-            $regency = Regency::where('province_id', $province_id)->get();
+        $regency_id = $request->regency_id;
+        if ($regency_id) {
+            $regency = Regency::find($regency_id);
         } else {
             $regency = Regency::all();
         }
@@ -32,9 +32,9 @@ class GlobalApiController extends Controller
 
     public function getDistrict(Request $request)
     {
-        $regency_id = $request->regency_id;
-        if ($regency_id) {
-            $district = District::where('regency_id', $regency_id)->get();
+        $district_id = $request->district_id;
+        if ($district_id) {
+            $district = District::find($district_id);
         } else {
             $district = District::all();
         }
