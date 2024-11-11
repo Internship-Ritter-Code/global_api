@@ -47,9 +47,9 @@ class GlobalApiController extends Controller
     {
         $district_id = $request->district_id;
         if ($district_id) {
-            $district = District::with('regency.regency.province')->where('id', $district_id)->first();
+            $district = District::with('regency.province')->where('id', $district_id)->first();
         } else {
-            $district = District::with('regency.regency.province')->get();
+            $district = District::with('regency.province')->get();
         }
         $message = 'Success';
         $status = 200;
