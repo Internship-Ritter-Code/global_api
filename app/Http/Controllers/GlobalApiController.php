@@ -57,9 +57,14 @@ class GlobalApiController extends Controller
         return response()->json(['message' => $message, 'status' => $status, 'data' => $district]);
     }
 
-    public function getJneDestination()
+    public function getJneDestination(Request $request)
     {
-        $jneDestination = JneDestination::all();
+        $query = $request->query;
+        if ($query) {
+            $jneDestination = JneDestination::where('name', 'like', '%' . $query . '%')->get();
+        } else {
+            $jneDestination = JneDestination::all();
+        }
         return response()->json(['message' => 'Success', 'status' => 200, 'data' => $jneDestination]);
     }
 }
