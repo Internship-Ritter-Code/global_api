@@ -6068,8 +6068,7 @@ class JneDestionationSeeder extends Seeder
         (6050,'PKU21210','SUNGAI APIT,SIAKSRIINDAPURA'),
         (6051,'PKU21200','SIAKSRIINDAPURA');
 
-          INSERT INTO `jne_destination` (`id`, `code`, `name`)
-          VALUES
+        INSERT INTO `jne_destinations` (`id`, `code`, `name`) VALUES
         (6052,'PDG21203','SITIUNG,PUALU PUNJUNG'),
         (6053,'PDG21204','SUNGAI RUMBAI,PUALU PUNJUNG'),
         (6054,'PDG21304','SULIKI GUNUNG MAS,SARILAMAK'),
